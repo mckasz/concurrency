@@ -1,11 +1,3 @@
-wyrównanie poziomu - przepytanie z artykułu
-punkty z zagadnieniami 
-zadania z rozszerzeniem
-do przeczytania - książeczka sun'a
-java docki
-moje notatki -> pigułka wiedzy
-
-
 Plan:
 1. Podstawy
    1. Tworzenie wątku
@@ -106,8 +98,8 @@ Dodaje możliwość cytania optimistycznego. Czyli czytamy i jeżeli nasz stamp 
 Zadanie:
 Dodać własny adapter na HashMapę który zapewni możliwość podniesienia licznika w sposób bezpieczny wątkowo. 
 Przy okazji popatrzymy sobie na implementację ConcurrentHashMapy. 
-- Czemu tam jest synchronized a nie lock?
-
+- Czemu w kodzie ConcurrentHashMap jest synchronized a nie lock?
+Bo synchronized jest po prostu szybszy. Jeżeli możemy nie potrzebujemy funkcjonalnosci locków to synchronized jest dobrym rozwiązaniem. 
 
 
 3. Atomic
@@ -124,9 +116,7 @@ Zadanie:
 - popraw kod tak by licznik wskazywał poprawną wartość, użyj klasy Atomic
 - użyj metody compare and set
 - zrób tak by poczekać na wynik wykonania pracy wszystkich wątków
-<!-- - czy istnieje inna metoda synchronizacji którą możemy wykorzystać? -->
 - zmierz i porównaj czasy wykonania przy różnych metodach synchronizacji.
-- Bonus: jak zachowuje się dla 1000 powtórzeń na JDK 1.8 i 16? 
 
 
 4. Future
@@ -142,16 +132,32 @@ przykładowe implementacje:
 - Executors.newSingleThreadExecutor();
    działa na pojedynczym wątku. To camo co Executors.newFixedThreadPool(1)
 - Executors.newFixedThreadPool(10);
-   
+   executor gdzie ustalamy ilość wątków dostępnych przez cały czas działania executora.
 - Executors.newWorkStealingPool();
+   Pod spodem to jest ForkJoinPool 
 - Executors.newCachedThreadPool();
+   Executor który sam tworzy lub reużywa wątki. Dobry do wielu krótko żyjących zadań.    
 
 6. ForkJoin
 Framework który pozwala na szybkie wykonywanie zadań które daje się podzielić na mniejsze. Polega on na algorytmie składającym się z dwóch faz:
 - Fork - dzielimy zadanie i wykonujemy je równolegle
 - Join - zbieramy rezultaty
+Zadania muszą być podzielne a ich wyniki da się złączyć, ponieważ ForkJoin będzie działał w ten sposób, że:
+- jeżeli zadanie jest duże to dzielimy je na dwa mniejsze
+- jeżeli jest wystarczająco małe to je wykonujemy
+- na koniec zbieramy wyniki i łączymy je
+Przykłady zadań:
+- tablica adresów na który chcemy wysłać email, dzielimy ją wysyłamy, rezultat (czy się udało czy nie) zbieramy w liście
+- operacje matematyczne łączne czyli takie w których możemy obliczyć rezultaty cząstkowe na których wykonamy te same obliczenia, trywialny przykład to tablica którą chcemy zsumować 
+
+
 
 Zadanie domowe:
+Napisz własy executor. Tj klasę, która: 
+- na początku tworzy wątki które są uśpione do momentu kiedy executor dostanie zadanie
+- ma kolejkę na którą przyjmuje zadania (Runnable)
+- zadania zbierane są z kolejki i przekazuje je do wykonania w wątku
+- po wykonaniu zadania wątek jest gotowy do przyjęcia kolejnego zadania
 
 
 

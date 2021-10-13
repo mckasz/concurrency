@@ -5,6 +5,7 @@ import pl.sages.javadevpro.concurrency.Util;
 import static pl.sages.javadevpro.concurrency.Util.sleepFor;
 
 class Daemon {
+    // TODO: jak zachowuje się aplikacja kiedy ma tylko wątek demonowy?
     public static void main(String[] args) {
         Thread t = new MyThread();
         t.setDaemon(false);

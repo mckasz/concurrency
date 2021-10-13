@@ -3,7 +3,6 @@ package pl.sages.javadevpro.concurrency.forkjoin;
 import pl.sages.javadevpro.concurrency.locks.LongText;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
@@ -19,7 +18,6 @@ public class RecursiveActionMain {
 
         System.out.println(result);
         pool.shutdown();
-        Collections.synchronizedList()
         pool.awaitTermination(1, TimeUnit.DAYS);
     }
 

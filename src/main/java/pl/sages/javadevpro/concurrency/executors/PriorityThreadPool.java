@@ -6,6 +6,6 @@ class PriorityThreadPool {
     }
 
     private void invoke() {
-        // stwórz exekutora, który będzie wykonywał zadania zgodnie z priorytetem dzięki odpowiedniemu adapterowi dla zadań
+        //TODO: stwórz exekutora, który będzie wykonywał zadania zgodnie z priorytetem dzięki odpowiedniemu adapterowi dla zadań
     }
 }

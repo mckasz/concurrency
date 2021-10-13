@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 class VerboseExecutorService extends ThreadPoolExecutor {
-    // Dodaj informacje o
+    //TODO: Dodaj informacje o
     // - liczbie wykonanych, trwających i czekających zadań w metodzie shutdown i shutdownNow
     // - liczbie wykonanych, trwających i czekających zadań w metodzie shutdown
     // - nazwie wątku. który będzie wykonywać zadanie

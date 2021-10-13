@@ -36,6 +36,7 @@ class WordCount {
     }
 
     private void invoke() {
+        // TODO: zlecić wykonanie liczenia słów osobnemu wątkowi i poczekać na wynik
         countWords();
 
         printResults();

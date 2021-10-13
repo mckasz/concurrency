@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import static pl.sages.javadevpro.concurrency.Util.sleepFor;
 import static pl.sages.javadevpro.concurrency.Util.threadName;
 
+// Mój rozwiązania zadania domowego
 class MyExecutorService {
 
     public static void main(String[] args) {
@@ -50,10 +51,13 @@ class MyExecutorService {
                                                     .filter(e -> !e.getValue())
                                                     .map(Map.Entry::getKey)
                                                     .findFirst();
-//        maybeThread.ifPresentOrElse(t -> {
-//            busyThreads.put(t, true);
-//            t.giveTask(task);
-//        }, () -> tasks.push(task));
+        if (maybeThread.isPresent()) {
+            MyThread t = maybeThread.get();
+            busyThreads.put(t, true);
+            t.giveTask(task);
+        } else {
+            tasks.push(task);
+        }
     }
 
 

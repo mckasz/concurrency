@@ -4,6 +4,7 @@ import static pl.sages.javadevpro.concurrency.Util.sleepFor;
 
 class WhatHappened {
 
+    // TODO: Co dzieje się, kiedy wątek rzuca wyjątek? Co stanie się na serwerze aplikacyjnym?
     public static void main(String[] args) {
         Thread t = new MyThread();
         t.start();

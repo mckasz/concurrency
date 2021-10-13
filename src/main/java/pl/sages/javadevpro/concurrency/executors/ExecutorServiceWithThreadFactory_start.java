@@ -18,7 +18,7 @@ class ExecutorServiceWithThreadFactory_start {
         }
 
     }
-    // Stwórz fabrykę która nazywa watki z odpowiednim prefixem, numeruje je i ustawia jako demony
+    // TODO: Stwórz fabrykę, która nazywa watki z odpowiednim prefixem, numeruje je i ustawia jako demony
     private static class MyThreadFactory implements ThreadFactory {
         @Override
         public Thread newThread(Runnable r) {

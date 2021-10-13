@@ -15,6 +15,7 @@ class ExecutorServiceSample {
     }
 
     private void invoke() {
+        // Przykłady różnych executorów
         ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
         ExecutorService fixedThreadPool =      Executors.newFixedThreadPool(10);
         ExecutorService workStealingPool =     Executors.newWorkStealingPool();
